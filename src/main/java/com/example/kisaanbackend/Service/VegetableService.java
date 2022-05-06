@@ -33,4 +33,8 @@ public class VegetableService {
 
         }else return  null;
     }
+
+    public List<Vegetable> getByLocation(String location){
+        return vegetableRepository.findByLocation(location);
+    }
 }

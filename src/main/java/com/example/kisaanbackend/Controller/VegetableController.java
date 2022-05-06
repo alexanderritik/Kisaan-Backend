@@ -31,4 +31,9 @@ public class VegetableController {
     public Vegetable getVegetableById(@PathVariable int id){
         return vegetableService.getVegetableById(id);
     }
+
+    @GetMapping("/vegetableLocation/{location}")
+    public List<Vegetable> getVegetablesByLocation(@PathVariable String location){
+        return vegetableService.getByLocation(location);
+    }
 }
