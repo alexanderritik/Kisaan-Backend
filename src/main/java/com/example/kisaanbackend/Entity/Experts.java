@@ -15,7 +15,7 @@ public class Experts {
 
     private String name;
     private String image;
-    private int contact;
+    private String contact;
     private int chat_charge;
     private int call_charge;
     private String degree;
