@@ -1,3 +1,5 @@
+
+
 package com.example.kisaanbackend.Entity;
 
 import lombok.Getter;
@@ -8,15 +10,14 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-public class Experts {
+public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
-    private String image;
-    private String contact;
-    private int chat_charge;
-    private int call_charge;
-    private String degree;
+    private String loan_name;
+    private int interest_rate;
+    private int emi;
+    private int maximum_amount;
+
 }
