@@ -42,4 +42,4 @@ jobs:
 
       - name: Deploy 
         run: |     
-          gcloud run deploy $SERVICE_NAME --image gcr.io/$PROJECT_ID/$SERVICE_NAME --max-instances 3 --memory 1000Mi --platform managed --region $REGION --allow-unauthenticated # --vpc-connector hu-conn --add-cloudsql-instances huex-mysql 
+          gcloud run deploy $SERVICE_NAME --image gcr.io/$PROJECT_ID/$SERVICE_NAME --max-instances 3 --memory 1000Mi --platform managed --region $REGION --allow-unauthenticated --vpc-connector hu-conn --add-cloudsql-instances huex-mysql 
