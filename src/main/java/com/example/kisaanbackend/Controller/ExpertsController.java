@@ -24,5 +24,9 @@ public class ExpertsController {
     public List<Experts> getAllExperts(){
         return expertsService.getAllExperts();
     }
-    
+
+    @PostMapping("/addExpert")
+    public  Experts addExpert(@RequestBody Experts expert){
+        return expertsService.addExpert(expert);
+    }
 }
