@@ -1,9 +1,14 @@
-FROM maven:3.8.4-jdk-11-slim AS build  
-COPY . /usr/src/app/  
-COPY pom.xml /usr/src/app  
-RUN mvn -f /usr/src/app/pom.xml clean install -DskipTests
-
-FROM gcr.io/distroless/java  
-COPY --from=build /usr/src/app/target/*.jar /usr/app/app.jar  
+FROM maven:3.8-jdk-11 as builder
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+COPY . .
+#RUN mvn clean test
+#RUN mvn jacoco:report
+RUN mvn package  -DskipTests 
+##RUN mvn package
+#RUN mvn sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.host.url=https://sonarqube.hashedin.com  -Dsonar.login=0c7d7a39afee7c34f4b6794e9b2b79d0487c2cd9
+FROM openjdk:11
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/app/app.jar"]
+COPY --from=builder /app/target/*.jar /app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
