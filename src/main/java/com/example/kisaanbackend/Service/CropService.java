@@ -22,4 +22,8 @@ public class CropService {
     public List<Crop> getAllCrops(){
         return cropRepository.findAll();
     }
+
+    public  List<Crop> getByMonth(String month){
+       return cropRepository.findByMonth(month);
+    }
 }

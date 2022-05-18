@@ -4,6 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 @Entity
 @Getter
@@ -18,5 +22,11 @@ public class Crop {
     private String temperature;
     private String season;
     private String climate;
+    private String month;
+
+    @ElementCollection
+    private List<String> states;
+
+
 
 }
