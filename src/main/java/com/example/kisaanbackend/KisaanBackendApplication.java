@@ -8,6 +8,7 @@ public class KisaanBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KisaanBackendApplication.class, args);
+
 	}
 
 }
