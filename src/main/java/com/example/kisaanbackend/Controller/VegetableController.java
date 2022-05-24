@@ -27,13 +27,15 @@ public class VegetableController {
         return  vegetableService.addVegetable(vegetable);
     }
 
-    @GetMapping("/vegetable/{id}")
-    public Vegetable getVegetableById(@PathVariable int id){
-        return vegetableService.getVegetableById(id);
+//    @GetMapping("/vegetable/{id}")
+//    public Vegetable getVegetableById(@PathVariable int id){
+//        return vegetableService.getVegetableById(id);
+//    }
+
+    @GetMapping("/vegetable/{name}")
+    public List<Vegetable> getVegetablesByName(@PathVariable String name){
+        return vegetableService.getByName(name);
     }
 
-    @GetMapping("/vegetableLocation/{location}")
-    public List<Vegetable> getVegetablesByLocation(@PathVariable String location){
-        return vegetableService.getByLocation(location);
-    }
+
 }

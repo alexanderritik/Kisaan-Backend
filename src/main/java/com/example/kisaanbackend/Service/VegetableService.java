@@ -24,17 +24,20 @@ public class VegetableService {
         return vegetableRepository.findAll();
     }
 
-    public Vegetable getVegetableById(int id){
-        Optional<Vegetable> optionalVegetable = vegetableRepository.findById(id);
+//    public Vegetable getVegetableById(int id){
+//        Optional<Vegetable> optionalVegetable = vegetableRepository.findById(id);
+//
+//        if(optionalVegetable.isPresent()){
+//
+//            return optionalVegetable.get();
+//
+//        }else return  null;
+//    }
 
-        if(optionalVegetable.isPresent()){
-
-            return optionalVegetable.get();
-
-        }else return  null;
+    public List<Vegetable> getByName(String name){
+        return vegetableRepository.findByName(name);
     }
 
-    public List<Vegetable> getByLocation(String location){
-        return vegetableRepository.findByLocation(location);
-    }
+
+
 }
