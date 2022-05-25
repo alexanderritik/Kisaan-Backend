@@ -17,4 +17,8 @@ public class LoanService {
     public List<Loan> getAllLoan(){
         return loanRepository.findAll();
     }
+
+    public Loan addLoan(Loan loan){
+        return loanRepository.save(loan);
+    }
 }

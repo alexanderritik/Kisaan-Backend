@@ -27,5 +27,10 @@ public class LoanController {
         return loanService.getAllLoan();
     }
 
+    @PostMapping("/addLoan")
+    public Loan addLoan(@RequestBody Loan loan){
+        return loanService.addLoan(loan);
+    }
+
 }
 
