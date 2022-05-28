@@ -24,7 +24,6 @@ public class Vegetable {
 
 
     @ElementCollection
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Common> price;
+    private List<String> price;
 
 }
