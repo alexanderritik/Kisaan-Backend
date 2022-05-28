@@ -20,6 +20,5 @@ public class Location {
 
 
     @ElementCollection
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Common> vegetables;
+    private List<String> vegetables;
 }
