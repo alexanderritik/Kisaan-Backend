@@ -24,6 +24,8 @@ public class Vegetable {
 
 
     @ElementCollection
-    private List<String> price;
+    @OneToMany(targetEntity = Common.class, cascade = CascadeType.ALL)
+    @JoinColumn(name ="veg_fk",referencedColumnName = "id")
+    private List<Common> price;
 
 }

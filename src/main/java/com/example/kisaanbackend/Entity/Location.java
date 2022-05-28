@@ -20,5 +20,7 @@ public class Location {
 
 
     @ElementCollection
-    private List<String> vegetables;
+    @OneToMany(targetEntity = Common.class,cascade = CascadeType.ALL)
+    @JoinColumn(name ="loc_fk",referencedColumnName = "id")
+    private List<Common> vegetables;
 }
