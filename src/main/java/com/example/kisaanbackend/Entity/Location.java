@@ -3,6 +3,7 @@ package com.example.kisaanbackend.Entity;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -19,5 +20,6 @@ public class Location {
 
 
     @ElementCollection
-    private Map<String, Float> vegetables;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Common> vegetables;
 }

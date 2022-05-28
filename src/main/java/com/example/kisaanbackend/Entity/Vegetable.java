@@ -6,6 +6,7 @@ import org.apache.logging.log4j.ThreadContext;
 
 import javax.persistence.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -21,7 +22,9 @@ public class Vegetable {
     private String image;
     private String description;
 
+
     @ElementCollection
-    private Map<String, Float> price;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Common> price;
 
 }
