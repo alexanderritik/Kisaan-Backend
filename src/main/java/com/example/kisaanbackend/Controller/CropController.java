@@ -25,13 +25,23 @@ public class CropController {
     }
 
     @PostMapping("/addcrop")
-    public Crop addCrop(@RequestBody Crop crop){
+    public String addCrop(@RequestBody Crop crop){
         return  cropService.addCrop(crop);
     }
 
     @GetMapping("/crop/{month}")
     public List<Crop> getCropsByMonth(@PathVariable String month){
         return  cropService.getByMonth(month);
+    }
+
+    @PutMapping("/crop/update")
+    public String updateCrop(@RequestBody Crop crop){
+        return cropService.updateCrop(crop);
+    }
+
+    @DeleteMapping("crop/delete/{name}")
+    public String deleteCrop(@PathVariable String name){
+        return  cropService.deleteCrop(name);
     }
 
 }

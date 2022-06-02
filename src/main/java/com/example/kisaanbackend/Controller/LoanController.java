@@ -5,10 +5,7 @@ import com.example.kisaanbackend.Entity.Loan;
 import com.example.kisaanbackend.Repository.LoanRepository;
 import com.example.kisaanbackend.Service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,16 @@ public class LoanController {
     @PostMapping("/addLoan")
     public Loan addLoan(@RequestBody Loan loan){
         return loanService.addLoan(loan);
+    }
+
+    @PutMapping("/loan/update")
+    public String updateLoan(@RequestBody Loan loan){
+        return loanService.updateLoan(loan);
+    }
+
+    @DeleteMapping("loan/delete/{id}")
+    public String deleteLoan(@PathVariable int id){
+        return loanService.deleteLoan(id);
     }
 
 }

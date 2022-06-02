@@ -35,4 +35,9 @@ public class LocationController {
     public Location getByStateName(@PathVariable String cityName){
         return  locationService.getByName(cityName);
     }
+
+    @DeleteMapping("location/delete/{name}")
+    public String deleteLocation(@PathVariable String name){
+        return  locationService.deleteLocation(name);
+    }
 }
