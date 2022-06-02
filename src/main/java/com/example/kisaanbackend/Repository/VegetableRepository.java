@@ -6,6 +6,6 @@ import java.util.List;
 
 @Repository
 public interface VegetableRepository extends JpaRepository<Vegetable, Integer> {
-    List<Vegetable> findByName(String name);
+    Vegetable findByName(String name);
 
 }

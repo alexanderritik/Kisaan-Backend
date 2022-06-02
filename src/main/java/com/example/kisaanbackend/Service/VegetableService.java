@@ -1,5 +1,6 @@
 package com.example.kisaanbackend.Service;
 
+import com.example.kisaanbackend.Entity.Crop;
 import com.example.kisaanbackend.Entity.Vegetable;
 import com.example.kisaanbackend.Repository.VegetableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,18 @@ public class VegetableService {
     private VegetableRepository vegetableRepository;
 
 
-    public Vegetable addVegetable(Vegetable vegetable){
-        return vegetableRepository.save(vegetable);
+    public String addVegetable(Vegetable vegetable){
+
+        Vegetable check = vegetableRepository.findByName(vegetable.getName());
+
+        if(check!=null){
+            return "Vegetable with this name already present";
+        }
+
+        else {
+             vegetableRepository.save(vegetable);
+             return "Vegetable Added";
+        }
     }
 
 
@@ -34,8 +45,25 @@ public class VegetableService {
 //        }else return  null;
 //    }
 
-    public List<Vegetable> getByName(String name){
+    public Vegetable getByName(String name){
         return vegetableRepository.findByName(name);
+    }
+
+
+
+
+    public  String deleteVegetable(String name){
+        Vegetable delVegegtable = vegetableRepository.findByName(name);
+        int delId = delVegegtable.getId();
+
+
+        Optional<Vegetable> oldVegetable = vegetableRepository.findById(delId);
+        if(oldVegetable.isPresent()){
+            vegetableRepository.deleteById(delId);
+            return "Vegetable Deleted";
+        }else return "Vegetable Not Found";
+
+
     }
 
 

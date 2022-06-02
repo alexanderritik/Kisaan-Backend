@@ -23,7 +23,7 @@ public class VegetableController {
     }
 
     @PostMapping("/addVegetable")
-    public Vegetable addVegetable(@RequestBody Vegetable vegetable){
+    public String addVegetable(@RequestBody Vegetable vegetable){
         return  vegetableService.addVegetable(vegetable);
     }
 
@@ -33,8 +33,14 @@ public class VegetableController {
 //    }
 
     @GetMapping("/vegetable/{name}")
-    public List<Vegetable> getVegetablesByName(@PathVariable String name){
+    public Vegetable getVegetablesByName(@PathVariable String name){
         return vegetableService.getByName(name);
+    }
+
+
+    @DeleteMapping("vegetable/delete/{name}")
+    public String deleteVegetable(@PathVariable String name){
+        return  vegetableService.deleteVegetable(name);
     }
 
 

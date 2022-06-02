@@ -11,5 +11,6 @@ import java.util.List;
 public interface CropRepository extends JpaRepository<Crop, Integer> {
 
     List<Crop> findByMonth(String month);
+    Crop findByName(String name);
 
 }
