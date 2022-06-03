@@ -78,7 +78,7 @@ public class InsectService {
         }
 
         else {
-            insect = insectRepository.findByInsectName(oldCommonInsect.getInsectNames().get(1));
+            insect = insectRepository.findByInsectName(oldCommonInsect.getInsectNames().get(2));
         }
 
         int delId = -1;
@@ -93,6 +93,18 @@ public class InsectService {
             return "Insect Deleted";
         }else return "Insect Not Found";
 
+
+    }
+
+
+    public String DeleteById(int id){
+
+        Optional<Insect> oldInsect = insectRepository.findById(id);
+
+        if(oldInsect.isPresent()){
+            insectRepository.deleteById(id);
+            return "Insect Deleted";
+        }else return "Insect Not Found";
 
     }
 
